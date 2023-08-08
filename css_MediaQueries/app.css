@@ -1,0 +1,92 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+    font-size: 6em;
+    text-align: center;
+}
+nav {
+    /* Home, Learn More, About, Contact, Sign Up 꾸며주기 */
+    font-size: 1.5em;
+    display: flex;
+
+    /* justify-content: space-between -> html에서 나눈 구조를 토대로 양 옆, 가운데로 배치됨 */
+    justify-content: space-between;
+
+}
+
+ul,li {
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+/* 화면 축소시, nav 태그 안의 요소들을 구분하기 위한 코드. */
+ul{
+    border: 1px solid red;
+    flex: 1;   /*이 코드만 적을 떈, flexbox가 공간을 꽉차게 차지함을 알 수 있음 */
+    max-width: 50%; /*최대 너비 지정*/
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+
+/* 미디어 쿼리는 항상 @media로 시작하며, 
+괄호 안에 다양한 미디어 기능을 넣을 수 있음 */
+
+/* 미디어 쿼리에서는 너비를 많이 쓰고 높이를 가끔 씀
+또한 방향을 이용해 가로나 세로 방향을 바꿀 수 있음 */
+
+/* @media(width: 800px){
+    h1의 너비를 정확히 800px로 나타내고 있음. 
+    보통 이렇게 사용하지 않고 최소/최대 너비를 설정하여 사용
+    h1{
+        color: purple;
+    }
+} */
+
+/* @media(min-width: 800px){
+    h1의 최소 너비를 800px로 설정함.
+    이는 화면을 줄여 800px이하 -> 폰트 검정
+                    800px이상 -> 폰트 보라색 
+    h1{
+        color: purple;
+    }
+} */
+
+/* @media(min-width: 600px) and (max-width: 800px){
+    h1{
+        color: purple;
+    }
+} */
+
+@media(max-width: 768px){
+    h1{ 
+        /* max 너비 768px, font 크기 4em, color red */
+        font-size: 4em;
+    }
+    nav, nav ul{
+        flex-direction: column;
+        align-items: center;
+        /* 화면 축소 시 글자들을 가운데로 배치하고 싶다면,
+        주요축이 세로선이고 가로선을 좌우로 가로질러야 하기 때문에 
+        justify-content가 아니라 align-items: center;을 사용해야 함. */
+    }
+
+}
+
+@media(max-width: 576px){
+    /* max 너비 576px, font 크기 2.5em, color orange */
+    h1{
+        font-size: 3em;
+        color: orange;
+    }
+}
+
+/* @media(orientation: landscape){
+    body{
+        background-color: magenta;
+    }
+} */

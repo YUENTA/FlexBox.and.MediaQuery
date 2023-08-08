@@ -1,0 +1,83 @@
+/* 본축은 맨 왼쪽, 맨 위임을 기억
+-> y축이 +이면 밑으로, x축이 +이면 오른쪽으로 이동함 */
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+h1, h2{
+    text-align: center;
+}
+#container {
+    /* flexbox 만들기 위한 container 배경색 */
+    background-color: #003049;
+
+    /* 넓이 지정 */
+    width: 90%;
+
+    /* height: 500px; */
+    /* 여백없음 */
+    margin: 0 auto;
+
+    /* 경계선 설정 */
+    border: 5px solid #003049;
+
+    /* flex하게 배치 */
+    display: flex;
+
+    /* 수평으로 컨텐츠 정렬 */
+    flex-direction: row;
+
+    /* 콘텐츠를 주축을 따라 중앙에 정렬 */
+    /* justify-content는 수평도, 수직도 아님. 
+    flex-direction에 따라 결정되는 요소임 */
+    justify-content: center;
+    
+    /* flex-wrap: wrap; */
+    /* 중앙에 있던 아이템 위쪽 baseline으로 정렬 */
+    align-content: space-between;
+}
+
+#container div {
+    width: 200px;
+    height: 200px;
+    /* max-width: 300px; */
+    text-align:center;
+    /* flex-basis: 요소가 배치되기 전에 요소의 최초 크기 결정 */
+    /* 너비가 결정되었어도 flex-basis설정 시 너비 무시됨 */
+    flex-basis: 600px;
+    font-size: 4em;
+}
+
+/* 첫번째 div조각 */
+div:nth-of-type(1) {
+    flex-grow: 1;  /* 단위 작성 필요 없음 */
+    flex-shrink:2; /* 단위 작성 필요 없음 */
+    align-self: center;
+}
+
+/* 5번째 div 조각 */
+div:nth-of-type(5) {
+    flex-grow: 2;
+}
+/* flex-grow는 같이 배치된 요소들보다 얼만큼 더 키울 것인지 설정해주는 것
+flex-shrink는 같이 배치된 요소들보다 얼만큼 더 줄일 것인지 설정해주는 것 */
+
+main {
+    width: 80%;
+    margin: 0 auto;
+    border: 5px solid black;
+    height: 500px;
+    display: flex;
+}
+main .sidebar {
+    background-color: #6930c3;
+    flex:1 2 300px;
+    /* flex에 3가지 숫자의 순서는 grow, shrink, basis의 순서임 */
+    /* grow, shrink는 단위가 없음. only basis만 단위가 있음 */
+    /* flex에 단위를 적어주지 않으면 flex-grow로 취급됨 */
+}
+main .maincontent {
+    background-color: #80ffdb;
+    flex: 2 1 800px;
+}
+
+
